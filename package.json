@@ -1,0 +1,25 @@
+{
+  "name": "seniorlivingservice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kayhon/seniorlivingservice.git"
+  },
+  "author": "GR",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kayhon/seniorlivingservice/issues"
+  },
+  "homepage": "https://github.com/kayhon/seniorlivingservice#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
+  }
+}
