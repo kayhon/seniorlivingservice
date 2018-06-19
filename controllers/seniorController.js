@@ -20,6 +20,13 @@ router.get("/contact", function(req, res) {
     res.render("partials/contact.handlebars");
 });
 
+router.get("/form2", function(req, res) {
+    res.render("partials/form2.handlebars");
+});
+
+router.get("/navbar", function(req, res) {
+    res.render("partials/navbar.handlebars");
+});
 
 module.exports = router;
   
