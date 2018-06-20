@@ -35,8 +35,8 @@ var address = "";
 
 // defines the variables used for the api call
 function setQuery() {
-    location = $("#zip").val().trim();
-    service = $("#service").val().trim();
+    var location = $("#zip").val().trim();
+    var service = $("#service").val().trim();
     console.log(location);
     console.log(service);
 };
@@ -132,7 +132,7 @@ function callApi() {
 }
 
 
-$('#placeholderBtnId').on("click", function() {
+$('#submitBtn').on("click", function() {
     event.preventDefault();
     setQuery();
     callApi();
