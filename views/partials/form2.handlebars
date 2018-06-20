@@ -12,36 +12,24 @@
       <div class="contact">
         <h3>Email Us</h3>
         <form>
-          <p>
-            <label>Name</label>
-            <input type="text" name="name">
-          </p>          
-          <p>
-            <label>Service</label>
-            <input type="text" name="Service" list="services">
-              <datalist id="services">
-                  <option value="Independant Living">
-                  <option value="Assisted Living">
-                  <option value="Memory Care"> 
-                  <option value="Other">
-                  <option value="None">
-              </datalist>            
-          </p>
-          <p>
-            <label>Email Address</label>
-            <input type="email" name="email">
-          </p>
-          <p>
-            <label>Phone Number</label>
-            <input type="text" name="phone">
-          </p>
-          <p>
-            <label>Message</label>
-            <textarea name="message" rows="5"></textarea>
-          </p>
-          <p>
-            <button>Submit</button>
-          </p>
+          Name:
+          <input id="name" type="text" name="name">
+          Service:
+          <input id="serv" type="text" name="Service" list="services">
+            <datalist id="services">
+              <option value="Independant Living">
+              <option value="Assisted Living">
+              <option value="Memory Care"> 
+              <option value="Other">
+              <option value="None">
+            </datalist>            
+          Email Address:
+          <input id="email" type="email" name="email">
+          Phone Number:</label>
+          <input id="phone" type="text" name="phone">
+          Location:
+          <input id="#zip" type="text" name="location">
+          <button id="submitBtn">Submit</button>
         </form>
       </div>
     
