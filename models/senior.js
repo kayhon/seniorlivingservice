@@ -5,8 +5,7 @@ var senior = {
         orm.create("leads", cols, vals, function(res) {
           cb(res);
         });
-    },
-    
+    },   
 };
 
 module.exports = senior;
