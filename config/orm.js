@@ -9,16 +9,11 @@ var connection = require("../config/connection.js");
 
 
 var orm = {
-  create: function(name, email, zip, type, cb) {
+  create: function(name, serv, phone, email, zip) {
 
-    var queryString = "INSERT INTO LEADS (name, email, zip, serviceType) VALUES (" + name + ", " + email + ", " + zip + ", " + serviceType + ")";
+    var queryString = "INSERT INTO LEADS (name, serv, phone, email, zip) VALUES (" + name + ", " + email + ", " + zip + ", " + serviceType + ")";
 
-    // queryString += name + " ";
-    // queryString += cols.toString();
-    // queryString += ") ";
-    // queryString += "VALUES (";
-    // queryString += printQuestionMarks(vals.length);
-    // queryString += ") ";
+  
 
     console.log(queryString);
 
