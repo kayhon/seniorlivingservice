@@ -17,23 +17,20 @@
           <li><i class="fa fa-envelope"></i> seniorlivingervices@gmail.com</li>
         </ul>
       </div>
-      <div class="contact">
+      <div id="results" class="contact">
         <h3>Find a Place, Services, & Location</h3>
         <form>
           <p>
             <label>Name</label>
-            <input type="text" name="name">
+            <input id="name" type="text" name="name">
           </p>
           <p>
             <label>Service</label>
-            <input type="text" name="Service" list="services">
-            <datalist id="services">
-              <option value="Independant Living">
-              <option value="Assisted Living">
-              <option value="Memory Care"> 
-              <option value="Other">
-              <option value="None">
-          </datalist>            
+            <select id="services">
+              <option value="Independant Living">Independant Living</option>
+              <option value="Assisted Living">Assisted Living</option>
+              <option value="Memory Care">Memory Care</option>
+            </select>
           </p>
           <p>
             <label>Email Address</label>
@@ -43,12 +40,12 @@
             <label>Phone Number</label>
             <input type="text" name="phone">
           </p>
-          <p class="full">
-            <label>Message</label>
-            <textarea name="message" rows="5"></textarea>
+          <p>
+            <label>Location:</label>
+            <input type="text" id="location" name="location">
           </p>
           <p class="full">
-            <button>Submit</button>
+            <button id="submitBtn" >Submit</button>
           </p>
         </form>
       </div>

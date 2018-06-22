@@ -13,7 +13,7 @@ $(function () {
 
         var newRequest = {
             name: $("#name").val().trim(),
-            serv: $("#serv").val().trim(),
+            serv: $("#services option:selected").text(),
             phone: $("#phone").val().trim(),
             email: $("#email").val().trim(),
             zip: $("#zip").val().trim()
@@ -55,6 +55,7 @@ function setQuery() {
 };
 
 function appendHTML(img , name , address, phone , rating ) {
+   $("#results").empty();
     var businessCard = "";
     businessCard += "<div class='container' id='pinned_bizzcard'>"
     businessCard += "<img id='thumbnailimg' src=" + img + ">"
@@ -65,7 +66,7 @@ function appendHTML(img , name , address, phone , rating ) {
     businessCard += "<p class='card-text' id='rating1'>Ratings:" + rating + "</p>"
     businessCard += "</div>"
     businessCard += "</div>"
-    $("body").append(businessCard);
+    $("#results").append(businessCard);
 };
 
 
