@@ -16,21 +16,20 @@
           <input id="name" type="text" name="name">
           Service:
           <input id="serv" type="text" name="Service" list="services">
-            <datalist id="services">
-              <option value="Independant Living">
-              <option value="Assisted Living">
-              <option value="Memory Care"> 
-              <option value="Other">
-              <option value="None">
-            </datalist>            
+            <select id="services">
+              <option value="Independant Living">Independant Living</option>
+              <option value="Assisted Living">Assisted Living</option>
+              <option value="Memory Care">Memory Care</option>
+            </select>            
           Email Address:
           <input id="email" type="email" name="email">
           Phone Number:</label>
           <input id="phone" type="text" name="phone">
           Location:
-          <input id="#zip" type="text" name="location">
+          <input id="location" type="text" name="location">
           <button id="submitBtn">Submit</button>
         </form>
+        <div id="map"></div>
       </div>
     
   </div>
