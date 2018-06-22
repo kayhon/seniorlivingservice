@@ -26,26 +26,16 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/agency.css" rel="stylesheet">
 		
-		{{!-- just added start --}}
-		{{!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> --}}
+    <!-- google maps API -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAesTaGBcfwg7KuTooDZd7jnOI7xGffDus&libraries=places"></script>
 
-		<!-- google maps API -->
-  		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAesTaGBcfwg7KuTooDZd7jnOI7xGffDus&libraries=places"></script>
-
-		{{!-- just added end --}}
-		
-		{{!-- <script src=""></script> --}}
 	</head>
 	<body>
 
 		{{{ body }}}
 
 
-	<!-- google maps API must link-->
-         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAesTaGBcfwg7KuTooDZd7jnOI7xGffDus&libraries=places"></script>	
-	
+	<div id="map"></div>
 	<!-- webapp logic must link-->
     <script type="text/javascript" src="assets/js/senior.js"></script>
 
