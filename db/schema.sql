@@ -14,4 +14,3 @@ CREATE TABLE leads
 	zip varchar(30) NOT NULL,
 	PRIMARY KEY (id)
 );
-
