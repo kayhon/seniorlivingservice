@@ -1,34 +1,28 @@
-// event handler for the submit button
-$('#submitBtn').on("click", function() {
+
+$('#submitBtn').on("click", function () {
     event.preventDefault();
+
+    var newRequest = {
+        name: $("#name").val().trim(),
+        serv: $("#services option:selected").text(),
+        phone: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        zip: $("#zip").val().trim()
+    };
+    alert(newRequest);
+    //send the POST request.
+    $.ajax("/api/orm", {
+        type: "POST",
+        data: newRequest
+    }).then(function () {
+        console.log("created new request", newRequest);
+        location.reload();
+    });
     setQuery();
     initialize();
     callApi();
 })
 
-$(function () {
-    $("create-form").on("submit", function(event) {
-        //preventDefault on a submit event.
-        event.preventDefault();
-
-        var newRequest = {
-            name: $("#name").val().trim(),
-            serv: $("#serv").val().trim(),
-            phone: $("#phone").val().trim(),
-            email: $("#email").val().trim(),
-            zip: $("#zip").val().trim()
-        };
-        //send the POST request.
-        $.ajax("/api/request", {
-            type: "POST",
-            data: newRequest
-        }).then( function() {
-            console.log("created new request");
-            location.reload();
-        });
-    });
-
-});
 // Start of api logic
 
 var map;
@@ -55,6 +49,7 @@ function setQuery() {
 };
 
 function appendHTML(img , name , address, phone , rating ) {
+   $("#results").empty();
     var businessCard = "";
     businessCard += "<div class='container' id='pinned_bizzcard'>"
     businessCard += "<img id='thumbnailimg' src=" + img + ">"
@@ -65,7 +60,7 @@ function appendHTML(img , name , address, phone , rating ) {
     businessCard += "<p class='card-text' id='rating1'>Ratings:" + rating + "</p>"
     businessCard += "</div>"
     businessCard += "</div>"
-    $("body").append(businessCard);
+    $("#results").append(businessCard);
 };
 
 
@@ -135,5 +130,7 @@ function callApi() {
         });
     }
 };
+
+
 
 
