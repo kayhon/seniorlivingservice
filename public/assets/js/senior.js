@@ -1,20 +1,48 @@
 
+$('#submitBtn').on("click", function () {
+    event.preventDefault();
 
-
+    var newRequest = {
+        name: $("#name").val().trim(),
+        serv: $("#serv").val().trim(),
+        phone: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        zip: $("#zip").val().trim()
+    };
+    alert(newRequest);
+    //send the POST request.
+    $.ajax("/api/orm", {
+        type: "POST",
+        data: newRequest
+    }).then(function () {
+        console.log("created new request", newRequest);
+        location.reload();
+    });
+    setQuery();
+    initialize();
+    callApi();
+})
 // Start of api logic
 
-
+var map;
 var locationInput = "";
 var typeInput = "";
 var address = "";
+var service = "";
 
 // $('#targetdiv').empty();
 
+function initialize() {
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: new google.maps.LatLng(37.09024,-95.71289100000001),
+      zoom: 3.5
+    });
+  };
 
 // defines the variables used for the api call
 function setQuery() {
-    var location = $("#zip").val().trim();
-    var service = $("#serv").val().trim();
+    service = $("#services option:selected").text();
+    locationInput = $("#location").val().trim();   
     console.log(location);
     console.log(service);
 };
@@ -30,39 +58,13 @@ function appendHTML(img , name , address, phone , rating ) {
     businessCard += "<p class='card-text' id='rating1'>Ratings:" + rating + "</p>"
     businessCard += "</div>"
     businessCard += "</div>"
-    
     $("body").append(businessCard);
- 
 };
 
-function detailsCall() {
-
-
-    var request = {
-      placeId: idPass
-    };
-
-    service = new google.maps.places.PlacesService(map);
-    service.getDetails(request, callback);
-
-
-
-    function callback(resultsTwo, status) {
-      if (status == google.maps.places.PlacesServiceStatus.OK) {
-        console.log(resultsTwo);
-        console.log(resultsTwo.photos[0].getUrl({"maxWidth":300,"minWidth":300}));
-        console.log(resultsTwo.name);
-        console.log(resultsTwo.formatted_address);   
-        console.log(resultsTwo.rating);
-        // function appendHTML(img , name , phone , rating )
-        appendHTML(resultsTwo.photos[0].getUrl({"maxWidth":200,"minWidth":200}) , resultsTwo.name , resultsTwo.formatted_address , resultsTwo.formatted_phone_number , resultsTwo.rating)
-      }
-    }
-};
 
 function callApi() {
     var geocoder = new google.maps.Geocoder();
-    var address = location;
+    var address = locationInput;
     var queryLatLng = "";
     var idPass = "";
     var photoRef = "";
@@ -97,40 +99,36 @@ function callApi() {
                         console.log(results[i]);
                         idPass = results[i].place_id;
                         console.log(idPass);
-                        detailsCall();
+                        // run a details call for each object coming back from the api
+                        var request = {
+                            placeId: idPass
+                          };
+                      
+                          service = new google.maps.places.PlacesService(map);
+                          service.getDetails(request, callback);
+                      
+                      
+                      
+                          function callback(resultsTwo, status) {
+                            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                              console.log(resultsTwo);
+                              console.log(resultsTwo.photos[0].getUrl({"maxWidth":300,"minWidth":300}));
+                              console.log(resultsTwo.name);
+                              console.log(resultsTwo.formatted_address);   
+                              console.log(resultsTwo.rating);
+                              // function appendHTML(img , name , phone , rating )
+                              appendHTML(resultsTwo.photos[0].getUrl({"maxWidth":200,"minWidth":200}) , resultsTwo.name , resultsTwo.formatted_address , resultsTwo.formatted_phone_number , resultsTwo.rating)
+                            }
+                        }
 
                     }
-                    // id needed for a details call will be results[i].place_id
+                    
                 }
             }
-        })
+        });
     }
+};
 
 
-}
 
-
-$('#submitBtn').on("click", function() {
-    event.preventDefault();
-    event.preventDefault();
-
-    var newRequest = {
-        name: $("#name").val().trim(),
-        serv: $("#serv").val().trim(),
-        phone: $("#phone").val().trim(),
-        email: $("#email").val().trim(),
-        zip: $("#zip").val().trim()
-    };
-    alert(newRequest);
-    //send the POST request.
-    $.ajax("/api/orm", {
-        type: "POST",
-        data: newRequest
-    }).then(function () {
-        console.log("created new request", newRequest);
-        location.reload();
-    });
-    setQuery();
-    callApi();
-})
 

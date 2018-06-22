@@ -28,8 +28,14 @@ function printQuestionMarks (num) {
 
 
 var orm = {
+
   create: function(cols, vals, cb) {
     var queryString = `INSERT INTO leads (${cols[0]}, ${cols[1]}, ${cols[2]}, ${cols[3]},${cols[4]}) VALUES (${cols[0]},${cols[1]}, ${cols[2]}, ${cols[3]},${cols[4]})`;
+
+
+    console.log(queryString);
+
+
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
