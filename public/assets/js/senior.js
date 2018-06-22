@@ -1,26 +1,4 @@
-$(function () {
-    $("create-form").on("submit", function(event) {
-        //preventDefault on a submit event.
-        event.preventDefault();
 
-        var newRequest = {
-            name: $("#name").val().trim(),
-            serv: $("#serv").val().trim(),
-            phone: $("#phone").val().trim(),
-            email: $("#email").val().trim(),
-            zip: $("#zip").val().trim()
-        };
-        //send the POST request.
-        $.ajax("/api/request", {
-            type: "POST",
-            data: newRequest
-        }).then( function() {
-            console.log("created new request");
-            location.reload();
-        });
-    });
-
-});
 
 
 // Start of api logic
@@ -36,7 +14,7 @@ var address = "";
 // defines the variables used for the api call
 function setQuery() {
     var location = $("#zip").val().trim();
-    var service = $("#service").val().trim();
+    var service = $("#serv").val().trim();
     console.log(location);
     console.log(service);
 };
@@ -134,6 +112,24 @@ function callApi() {
 
 $('#submitBtn').on("click", function() {
     event.preventDefault();
+    event.preventDefault();
+
+    var newRequest = {
+        name: $("#name").val().trim(),
+        serv: $("#serv").val().trim(),
+        phone: $("#phone").val().trim(),
+        email: $("#email").val().trim(),
+        zip: $("#zip").val().trim()
+    };
+    alert(newRequest);
+    //send the POST request.
+    $.ajax("/api/orm", {
+        type: "POST",
+        data: newRequest
+    }).then(function () {
+        console.log("created new request", newRequest);
+        location.reload();
+    });
     setQuery();
     callApi();
 })
