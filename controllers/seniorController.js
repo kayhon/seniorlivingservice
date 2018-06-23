@@ -22,10 +22,6 @@ router.get("/contact", function(req, res) {
     res.render("partials/contact.handlebars");
 });
 
-router.get("/form2", function(req, res) {
-    res.render("partials/form2.handlebars");
-});
-
 router.get("/form3", function(req, res) {
     res.render("partials/form3.handlebars");
 });
@@ -56,7 +52,7 @@ router.post("/api/orm", function (req, res) {
     ], function(result) {
         res.json({ id:result.insertId});
     });
-})
+});
 
 
 router.get("/footer", function(req, res) {

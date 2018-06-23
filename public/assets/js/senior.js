@@ -1,27 +1,59 @@
+// // Make sure we wait to attach our handlers until the DOM is fully loaded.
+// $(document).ready(function() {
+//     $("#create-form").on("submit", function (event) {
+//         //preventDefault on a submit event.
+//         event.preventDefault();
+//         console.log('here');
+//         var newRequest = {
+//             // name: "ulysse",
+//             // serv: "assisted living",
+//             // phone: "8888888",
+//             // email: "george.gmail.com",
+//             // zip: "12345"
+//             name: $("#name").val().trim(),
+//             serv: $("#services option:selected").text(),
+//             phone: $("#phone").val().trim(),
+//             email: $("#email").val().trim(),
+//             zip: $("#zip").val().trim()
+//         };
 
-$('#submitBtn').on("click", function () {
-    event.preventDefault();
+//         //send the POST request.
+//         $.ajax("/api/request", {
+//             type: "POST",
+//             data: newRequest
+//         }).then(function () {
+//             console.log("created new request");
+//             location.reload();
+//         });
+//     });
+// });
+$(document).ready(function() {
+    $('#submitBtn').on("click", function () {
+        event.preventDefault();
 
-    var newRequest = {
-        name: $("#name").val().trim(),
-        serv: $("#services option:selected").text(),
-        phone: $("#phone").val().trim(),
-        email: $("#email").val().trim(),
-        zip: $("#zip").val().trim()
-    };
-    alert(newRequest);
-    //send the POST request.
-    $.ajax("/api/orm", {
-        type: "POST",
-        data: newRequest
-    }).then(function () {
-        console.log("created new request", newRequest);
-        location.reload();
-    });
-    setQuery();
-    initialize();
-    callApi();
-})
+        var newRequest = {
+            name: $("#name").val().trim(),
+            serv: $("#services option:selected").text(),
+            phone: $("#phone").val().trim(),
+            email: $("#email").val().trim(),
+            zip: $("#location").val().trim()
+        };
+
+        console.log(newRequest);
+
+        // send the POST request.
+        $.ajax("/api/orm", {
+            type: "POST",
+            data: newRequest
+        }).then(function () {
+            console.log("created new request", newRequest);
+            //  location.reload();   
+        });
+        setQuery();
+        initialize();
+        callApi();
+    })
+});
 
 // Start of api logic
 
