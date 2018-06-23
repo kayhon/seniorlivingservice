@@ -23,7 +23,9 @@
   }  */
 
 /* //////////////////////////////////////////// */
- 
+#pinned_bizzcard {
+  border-bottom: dotted 1.5px;
+}
 #results {
   height: 562px;
   overflow: scroll;
