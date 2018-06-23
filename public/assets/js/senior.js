@@ -54,13 +54,13 @@ function setQuery() {
 function appendHTML(img , name , address, phone , rating ) {
    
     var businessCard = "";
+    businessCard += "<br>"
     businessCard += "<div class='container' id='pinned_bizzcard'>"
     businessCard += "<img id='thumbnailimg' src=" + img + ">"
     businessCard += "<div class='card-body textWrap'>"
     businessCard += "<h5 id='bizzName'>" + name + "</h5>"
-    businessCard += "<p class='card-text' id='address1'>Address:" + address + "</p>"
-    businessCard += "<p class='card-text' id='phoneNumber1'>Phone Number:" + phone + "</p>"
-    businessCard += "<p class='card-text' id='rating1'>Ratings:" + rating + "</p>"
+    businessCard += "<p class='card-text' id='address1'>Address: " + address + "</p>"
+    businessCard += "<p class='card-text' id='rating1'>Rating: " + rating + "/5</p>"
     businessCard += "</div>"
     businessCard += "</div>"
     $("#results").append(businessCard);
