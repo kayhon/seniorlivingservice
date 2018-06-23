@@ -24,6 +24,10 @@
 
 /* //////////////////////////////////////////// */
  
+#results {
+  height: 562px;
+  overflow: scroll;
+}
 
 /* jumbotron */
 .jumbotron { 
