@@ -1,5 +1,7 @@
-# seniorlivingservice
-Preview the site(heroku link):
+# seniorlivingservice (Website)
+
+## To view deployed version, _**[click here!](https://seniorlivingservice.herokuapp.com/)**_
+
 https://seniorlivingservice.herokuapp.com/ <br>
 ![slideshow-pics-jpg-01](https://github.com/kayhon/seniorlivingservice/blob/master/public/assets/img/slide1.jpg)<br>
 ![slideshow-pics-jpg-02](https://github.com/kayhon/seniorlivingservice/blob/master/public/assets/img/slide2.jpg)<br>
